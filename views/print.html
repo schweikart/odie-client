@@ -26,8 +26,9 @@
     </tr>
   </table>
 
-  <div class="pull-right" style="clear: both; padding-top: 10px;">
-    <div class="show-id" id="cover-text" data-bind="value: cart.name"></div>
+  <p class="pull-right" style="clear: both; padding-top: 10px;">
+    <div class="show-id" ></div>
+    <p  class='form-control-inline form-control' id="cover-text" data-bind="html: cart.name" required style='vertical-align: middle;'></p>
     <input type="text"  class='form-control-inline form-control' placeholder="Eindeutiger Bezeichner (Pfand/Deckblatt)" required style='vertical-align: middle;'>
     <div class="btn-group">
       <button type="submit" class='btn btn-primary icon-print' data-bind='enable: cart.documents.length > 0 && status != "waiting",
