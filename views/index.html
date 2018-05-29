@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/styles.css">
     <script type="text/javascript" src="assets/scripts.js"></script>
     <title>Klausurenverkauf – Fachschaft Mathematik/Informatik</title>
+    <!--  STYLE FOR PRINT ID POPUP -->
     <style>
       #dark-overlay {
         width: 100vw;
@@ -54,6 +55,7 @@
           margin: 0 10%;
       }
     </style>
+    <!-- END OF STYLE FOR PRINT ID POPUP -->
   </head>
   <body>
     <!-- POPUP FOR PRINT ID (styles are defined directly in index for "debugging", move later to separate file) -->
@@ -64,7 +66,7 @@
               </div>
               <div class="window-body">
                   <div class="id-show">
-                      <p>id: <span id="print-id" data-bind="html: cart.name"></span></p>
+                      <p>id: <span id="print-id"></span></p>
                   </div>
                   <div class="email-status"></div>
                   <div class="email-send">
