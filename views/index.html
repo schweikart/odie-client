@@ -7,8 +7,77 @@
     <link rel="stylesheet" href="assets/styles.css">
     <script type="text/javascript" src="assets/scripts.js"></script>
     <title>Klausurenverkauf – Fachschaft Mathematik/Informatik</title>
+    <style>
+      #dark-overlay {
+        width: 100vw;
+        height:100vh;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+      }
+
+      #window_id-alarm {
+          position: relative;
+          top: 40%;
+          margin: 0 auto;
+          width: 40%;
+          background: white;
+          text-align: center;
+          border-radius: 5px;
+      }
+
+      #window_id-alarm .window-header {
+          height: 20%;
+          background: rgba(215, 82, 84, 1);
+          border-radius: 5px 5px 0 0;
+          vertical-align: middle;
+          display: inline-block;
+          width: 100%;
+          color: #fff;
+          font-size: 1em;
+          font-weight: 200;
+      }
+
+      #window_id-alarm .window-footer_close {
+          height: 50%;
+          background: rgba(215, 82, 84, 1);
+          border-radius: 0 0 5px 5px;
+          display: block;
+          width: 100%;
+          color: #fff;
+          font-size: 1.2em;
+          font-weight: 200;
+          border: none;
+          display: block;
+      }
+
+      #window_id-alarm .window-body {
+          margin: 0 10%;
+      }
+    </style>
   </head>
   <body>
+    <!-- POPUP FOR PRINT ID (styles are defined directly in index for "debugging", move later to separate file) -->
+      <div id="dark-overlay">
+          <div id="window_id-alarm">
+              <div class="window-header">
+                  <h2>Druck job ID</h2>
+              </div>
+              <div class="window-body">
+                  <div class="id-show">
+                      <p>id: <span id="print-id" data-bind="html: cart.name"></span></p>
+                  </div>
+                  <div class="email-status"></div>
+                  <div class="email-send">
+                      <input type="email" name="email-input" id="email-input" placeholder="email">
+                      <button type="submit">vershcicken</button>
+                  </div>
+              </div>
+              <button class="window-footer_close" onclick="document.getElementById('dark-overlay').style.opacity = 0">
+                  Schliessen
+              </button>
+          </div>
+      </div>
+    <!-- END OF POPUP -->
   <img id="you-obviously-like-owls" src="https://www.fsmi.uni-karlsruhe.de/mediawiki/images/2/23/FS-Eule-KIT.png" alt="">
 
   <div id="container" class="container" style="display: none" data-bind="visible: true">
