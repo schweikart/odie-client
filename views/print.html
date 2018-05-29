@@ -34,8 +34,8 @@
       <button type="submit" class='btn btn-primary icon-print' data-bind='enable: cart.documents.length > 0 && status != "waiting",
       style: {
         "background-image": status == "waiting" ? buttonGradient : null,
-        opacity: status == "waiting" ? 1 : null,
-      }' onclick="document.getElementById('dark-overlay').style.opacity = 1">Drucken</button>
+        display: status == "waiting" ? "none" : "block",
+      }' onclick="document.getElementById('dark-overlay').style.display = 'block';document.getElementById('container').style.display = 'none'; document.body.style.marginBottom = '0px';">Drucken</button>
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-bind='enable: cart.documents.length > 0'>
         <span class="caret"></span>
         <span class="sr-only">Toggle Dropdown</span>

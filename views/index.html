@@ -13,7 +13,7 @@
         width: 100vw;
         height:100vh;
         background: rgba(0, 0, 0, 0.5);
-        opacity: 0;
+        display: none;
       }
 
       #window_id-alarm {
@@ -71,10 +71,10 @@
                   <div class="email-status"></div>
                   <div class="email-send">
                       <input type="email" name="email-input" id="email-input" placeholder="email">
-                      <button type="submit">vershcicken</button>
+                      <button type="submit">verschicken</button>
                   </div>
               </div>
-              <button class="window-footer_close" onclick="document.getElementById('dark-overlay').style.opacity = 0">
+              <button class="window-footer_close" onclick="document.getElementById('dark-overlay').style.display = 'none'; document.getElementById('container').style.display = 'block'">
                   Schliessen
               </button>
           </div>
