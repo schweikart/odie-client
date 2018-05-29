@@ -35,7 +35,7 @@
       style: {
         "background-image": status == "waiting" ? buttonGradient : null,
         opacity: status == "waiting" ? 1 : null,
-      }'>Drucken</button>
+      }' onclick="document.getElementById('dark-overlay').style.opacity = 1">Drucken</button>
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-bind='enable: cart.documents.length > 0'>
         <span class="caret"></span>
         <span class="sr-only">Toggle Dropdown</span>
