@@ -74,14 +74,28 @@ export default class PrintJob {
   submit(onSuccess) {
     this.status = 'waiting';
     this.printedPercent = 0;
-    let job = {
-      cover_text: this.cart.name,
-      cash_box: user.officeConfig.cash_boxes[0],
-      document_ids: this.cart.documents.map(doc => doc.id),
-      deposit_count: parseInt(this.depositCount),
-      price: this.totalPrice,
-      printer: this.selectedPrinter,
-    };
+    let mail = document.getElementById('mail').value;
+    let job;
+    if(mail == "" || mail == " ") {
+        job = {
+            cover_text: this.cart.name,
+            cash_box: user.officeConfig.cash_boxes[0],
+            document_ids: this.cart.documents.map(doc => doc.id),
+            deposit_count: parseInt(this.depositCount),
+            price: this.totalPrice,
+            printer: this.selectedPrinter,
+        };
+    } else {
+         job = {
+            cover_text: this.cart.name,
+            e_mail: mail,
+            cash_box: user.officeConfig.cash_boxes[0],
+            document_ids: this.cart.documents.map(doc => doc.id),
+            deposit_count: parseInt(this.depositCount),
+            price: this.totalPrice,
+            printer: this.selectedPrinter,
+        };
+    }
 
     // We use event streams to prevent connection timeouts on long-running
     // print requests and to show some progress indication.
