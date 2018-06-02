@@ -109,9 +109,13 @@ export default class PrintJob {
       stream.close();
       $.cookie('print_data', '', {path: '/'});
     });
-    stream.addEventListener('complete', () => {
+    stream.addEventListener('id', (msg) => {
+        var saleId = JSON.parse(msg.data);
+        log.addItem(saleId, this.totalPrice);
+        document.getElementById('print-id').innerHTML = saleId;
+    });
+    stream.addEventListener('complete', (msg) => {
       this.status = 'success';
-      log.addItem(this.cart.name, this.totalPrice);
       stream.close();
       $.cookie('print_data', '', {path: '/'});
       if (onSuccess) {
