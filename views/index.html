@@ -6,6 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/styles.css">
     <script type="text/javascript" src="assets/scripts.js"></script>
+    <script type="text/javascript">
+      function resendMail(id, mail) {
+       let req = new XMLHttpRequest();
+       let api = app.__proto__.api;
+       let url = api.baseUrl + 'resend_mail?data={"id":"' + id + '","mail":"' + mail + '"}';
+       let cookies = document.cookie.split('; ');
+       req.onreadystatechange = (data) => {
+         if (req.status == 400) {
+             api.errors.push("Ungültige Eingabe beim Wiederholten senden der E-Mail, bitte überprüfe die Felder erneut: " + JSON.parse(req.responseXML));
+         } else if (req.status == 200) {
+             console.log("in resendMail: " + JSON.parse(req.responseXML));
+             //TODO make something incredible
+         } else {
+             api.errors.push("recieved unexpected request state: " + req.status);
+         }
+        };
+        req.withCredentials = true;
+        req.open('GET', url, true);
+        for(let i = 0; i < cookies.length; i++){
+            let key = cookies[i].split('=')[0];
+            let value = cookies[i].split('=')[1];
+            if(key == "FSMISESSID" || key == 'csrf_tpken') {
+                req.setRequestHeader(key, value);
+            }
+        }
+        req.send();
+      }
+    </script>
     <title>Klausurenverkauf – Fachschaft Mathematik/Informatik</title>
     <!--  STYLE FOR PRINT ID POPUP -->
     <style>
@@ -71,7 +99,7 @@
                   <div class="email-status"></div>
                   <div class="email-send">
                       <input type="email" name="email-input" id="email-input" placeholder="email">
-                      <button type="submit">verschicken</button>
+                      <button onclick="resendMail(document.getElementById('print-id').innerHTML, document.getElementById('email-input').value)">verschicken</button>
                   </div>
               </div>
               <button class="window-footer_close" onclick="document.getElementById('dark-overlay').style.display = 'none'; document.getElementById('container').style.display = 'block'; document.getElementById('print-id').innerHTML=''">
