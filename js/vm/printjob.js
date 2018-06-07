@@ -124,7 +124,7 @@ export default class PrintJob {
       $.cookie('print_data', '', {path: '/'});
     });
     stream.addEventListener('id', (msg) => {
-        var saleId = JSON.parse(msg.data);
+        let saleId = JSON.parse(msg.data);
         log.addItem(saleId, this.totalPrice);
         document.getElementById('print-id').innerHTML = saleId;
     });
