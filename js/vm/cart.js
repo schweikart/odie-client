@@ -93,8 +93,8 @@ export default class Cart {
     }).done((data) => {
       this.reset();
       let res = data['id'];
-      alert("Du hast soeben einen Warenkorb gespeichert. Um diesen in der Fachschaft ausdrucken zu lassen musst du die ID:\n" + res + "\n angeben");
-      //TODO adding show id of the card
+      //alert("Du hast soeben einen Warenkorb gespeichert. Um diesen in der Fachschaft ausdrucken zu lassen musst du die ID:\n" + res + "\n angeben");
+      document.getElementById('saveFin').innerHTML = data['id'];
       $('#cart-save-modal').modal();
     });
   }
