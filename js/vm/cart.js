@@ -94,7 +94,7 @@ export default class Cart {
       this.reset();
       let res = data['id'];
       //alert("Du hast soeben einen Warenkorb gespeichert. Um diesen in der Fachschaft ausdrucken zu lassen musst du die ID:\n" + res + "\n angeben");
-      document.getElementById('saveFin').innerHTML = data['id'];
+      document.getElementById('saveFin').innerHTML = "Deine ID: " + data['id'];
       $('#cart-save-modal').modal();
     });
   }
