@@ -18,7 +18,7 @@ export default class DocumentSubmission {
     this.selectedLectures = [];
     this.selectedExaminants = [];
     this.date = null;
-    this.name = null;
+    this.name = "d";
     this.anonymous = false;
     this.file = null;
     this.department = 'computer science';
@@ -118,7 +118,7 @@ export default class DocumentSubmission {
             this.submissionEnabled = user.isAuthenticated;
             let responseJson = JSON.parse(req.responseText);
 			document.getElementById('saveFin').innerHTML = "Deine Upload ID: " + responseJson['data'];
-			document.getElementById('saveFin').innerHTML = "Du kannst das Pfand zurückbekommen. Indem du die diese ID deinem Verkäufer nennst.";
+			document.getElementById('saveFinBody').innerHTML = "Du kannst das Pfand zurückbekommen. Indem du die diese ID deinem Verkäufer nennst.";
 			$('#cart-save-modal').modal();
 			//alert('Deine Upload ID: ' + responseJson['data'] + "\n\ndiese benötigst du, wenn du deinen Pfand wieder haben möchtest");
             if(responseJson) this.early_document_eligible = responseJson.data.early_document_eligible;
