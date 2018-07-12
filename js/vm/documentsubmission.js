@@ -117,7 +117,10 @@ export default class DocumentSubmission {
             this.errorlabel = '';
             this.submissionEnabled = user.isAuthenticated;
             let responseJson = JSON.parse(req.responseText);
-            alert('Deine Upload ID: ' + responseJson['data'] + "\n\ndiese benötigst du, wenn du deinen Pfand wieder haben möchtest");
+			document.getElementById('saveFin').innerHTML = "Deine Upload ID: " + responseJson['data'];
+			document.getElementById('saveFin').innerHTML = "Du kannst das Pfand zurückbekommen. Indem du die diese ID deinem Verkäufer nennst.";
+			$('#cart-save-modal').modal();
+			//alert('Deine Upload ID: ' + responseJson['data'] + "\n\ndiese benötigst du, wenn du deinen Pfand wieder haben möchtest");
             if(responseJson) this.early_document_eligible = responseJson.data.early_document_eligible;
             break;
           case 400:

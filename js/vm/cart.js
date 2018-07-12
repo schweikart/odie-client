@@ -95,6 +95,7 @@ export default class Cart {
       let res = data['id'];
       //alert("Du hast soeben einen Warenkorb gespeichert. Um diesen in der Fachschaft ausdrucken zu lassen musst du die ID:\n" + res + "\n angeben");
       document.getElementById('saveFin').innerHTML = "Deine ID: " + data['id'];
+      document.getElementById('saveFinBody'.innterHTML = "Du kannst Klausuren und Protokolle nun in der Fachschat ausdrucken lassen. Indem du die obige ID deinem Verkäufer nennst.";
       $('#cart-save-modal').modal();
     });
   }
